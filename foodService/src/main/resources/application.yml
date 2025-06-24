@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   application:
     name: foodService
 
@@ -21,6 +23,16 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
+
+management:
+ # Enables all the actuator endpoints.
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
 
 server:
   port: 9092

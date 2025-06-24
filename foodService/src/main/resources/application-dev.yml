@@ -1,0 +1,8 @@
+server:
+  port: 9062
+
+info:
+  app:
+    name: "Food Service"
+    description: "The Food Service is in Development phase."
+    version: "1.0 Development"

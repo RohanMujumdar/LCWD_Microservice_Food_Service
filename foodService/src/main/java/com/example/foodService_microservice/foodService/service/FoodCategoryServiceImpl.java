@@ -50,7 +50,6 @@ public class FoodCategoryServiceImpl implements FoodCategoryService {
     }
 
 
-
     @Override
     public List<FoodCategoryDto> getAllCategories() {
         return categoryRepo.findAll()
