@@ -1,8 +1,17 @@
+
+
 spring:
   profiles:
-    active: dev
+    active: prod
+
   application:
     name: foodService
+
+# It tells our service where to read its configs from, in this case the Url of Config server.
+# We wrote optional just to tell it is not necessary to read from there only.
+# Incase our configServer is down, it helps, we can read the configs from our folder itself.
+  config:
+    import: "optional:configserver:http://localhost:9095/"
 
   datasource:
     url: jdbc:mysql://localhost:3306/lcwd
