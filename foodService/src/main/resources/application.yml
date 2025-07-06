@@ -4,8 +4,21 @@ spring:
   profiles:
     active: prod
 
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
   application:
     name: foodService
+
+
 
 # It tells our service where to read its configs from, in this case the Url of Config server.
 # We wrote optional just to tell it is not necessary to read from there only.
@@ -42,6 +55,17 @@ management:
   info:
     env:
       enabled: true
+
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      # By default it means that this configuration will be applied to all the cicuit breaker patterns.
+      default:
+        sliding-window-size: 10
+        permitted-number-of-calls-in-half-open-state: 2
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000
 
 server:
   port: 9092

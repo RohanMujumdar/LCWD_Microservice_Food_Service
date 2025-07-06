@@ -2,6 +2,7 @@ package com.example.foodService_microservice.foodService.service.external;
 
 import com.example.foodService_microservice.foodService.config.AppConstants;
 import com.example.foodService_microservice.foodService.dto.RestaurantDto;
+import com.example.foodService_microservice.foodService.service.external.fallback.RestaurantServiceFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ import java.util.List;
 // We are using Feign Client to fetch the data from Restaurant Service.
 
 // @FeignClient(name = "restaurantService", url = "http://localhost:9091")
-@FeignClient(name = AppConstants.RESTAURANT_SERVICE_NAME)
+@FeignClient(name = AppConstants.RESTAURANT_SERVICE_NAME, fallback = RestaurantServiceFallback.class)
 public interface RestaurantService {
 
 

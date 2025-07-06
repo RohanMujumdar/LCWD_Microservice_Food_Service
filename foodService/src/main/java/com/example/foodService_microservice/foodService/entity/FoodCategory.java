@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "food_service_food_category")
+@Table(name = "food_service_category")
 public class FoodCategory {
 
     @Id
